@@ -2,19 +2,15 @@ package com.back.crud.services;
 
 import java.util.List;
 import com.back.crud.entity.Persona;
-import com.back.crud.repository.ProductoRepository;
+import com.back.crud.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductoServiceImp implements ProductoService {
+public class PersonaServiceImp implements PersonaService {
 	
 	@Autowired
-	private ProductoRepository repository;
-
-    public static List<Persona> getAllProducto() {
-        return getAllProducto();
-    }
+	private PersonaRepository repository;
 
     @Override
 	public List<Persona> listar() {

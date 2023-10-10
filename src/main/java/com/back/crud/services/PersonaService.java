@@ -1,7 +1,7 @@
 package com.back.crud.services;
 import java.util.List;
 import com.back.crud.entity.Persona;
-public interface ProductoService {
+public interface PersonaService {
 
 	List<Persona>listar();
 	Persona listarId(int id);
