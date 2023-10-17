@@ -19,6 +19,9 @@ public class Persona {
 	@Column
 	private int edad;
 
+	@Column
+	private String email;
+
 	public int getId() {
 		return id;
 	}
@@ -49,5 +52,13 @@ public class Persona {
 
 	public void setEdad(int edad) {
 		this.edad = edad;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
