@@ -10,14 +10,14 @@ export class ServiceService {
 
   constructor(private http:HttpClient) { }
 
-  Url='http://localhost:8080/api/person';
+  Url='http://localhost:8080/api/person/';
 
   getPersonas(){
-    return this.http.get<Persona[]>(this.Url+"persona");
+    return this.http.get<Persona[]>(this.Url+"");
   }
 
   createPersona(persona:Persona){
-    return this.http.post<Persona>(this.Url+"agregar",persona);
+    return this.http.post<Persona>(this.Url+"",persona);
   }
 
   getPersonaId(id:number){
