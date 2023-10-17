@@ -3,7 +3,6 @@ package com.back.crud.controller;
 import java.util.List;
 import com.back.crud.entity.Persona;
 import com.back.crud.services.PersonaService;
-import com.back.crud.services.PersonaServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,5 +36,5 @@ public class Controller {
     @DeleteMapping(path = {"/delete"})
     public Persona delete(@PathVariable("id") int  id){
         return service.delete(id);
-    }
+    } 
 }
