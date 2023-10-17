@@ -10,7 +10,7 @@ export class ServiceService {
 
   constructor(private http:HttpClient) { }
 
-  Url='http://localhost:8080/persona';
+  Url='http://localhost:8080/api/person';
 
   getPersonas(){
     return this.http.get<Persona[]>(this.Url+"persona");
