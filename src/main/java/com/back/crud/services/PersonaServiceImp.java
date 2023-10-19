@@ -1,6 +1,8 @@
 package com.back.crud.services;
 
 import java.util.List;
+import java.util.Optional;
+
 import com.back.crud.entity.Persona;
 import com.back.crud.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,11 @@ public class PersonaServiceImp implements PersonaService {
 
 	@Override
     public Persona listarId(int id) {
-        return repository.findById(id);
+        Optional<Persona> persona = Optional.ofNullable(repository.findById(id));
+        if (persona.isPresent()) {
+            return persona.get();
+        }
+        throw new RuntimeException("Persona no encontrada por id" + id);
     }
 
     @Override
