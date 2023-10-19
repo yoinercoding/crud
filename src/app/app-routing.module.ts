@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListarComponent } from './Persona/toList/listar.component';
-import { AgregarComponent } from './Persona/add/agregar.component';
-import { EditarComponent } from './Persona/edit/editar.component';
+import { ListarComponent } from './components/toList/listar.component';
+import { AgregarComponent } from './components/add/agregar.component';
+import { EditarComponent } from './components/edit/editar.component';
 
 const routes: Routes = [
   {path:'listar', component:ListarComponent},
