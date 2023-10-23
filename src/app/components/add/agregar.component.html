@@ -1,37 +1,64 @@
 <div class="container col-md-5">
-    <div class="card">
-      
-      <div class="card-header">
-        <h3>Agregar Personas</h3>
-      </div>
+  <div class="card">
+    <div class="card-header">
+      <h3>Agregar Personas</h3>
+    </div>
 
-      <div class="card-body">
-        <form action="">
+    <div class="card-body">
+      <form action="">
+        <div class="form-group col-md-4">
+          <label for="">Nombres:</label>
+          <input
+            [(ngModel)]="persona.nombre"
+            name="name"
+            type="text"
+            class="form-control"
+            placeholder="Ejemplo: Yoiner"
+          />
+        </div>
 
-          <div class="form-group col-md-4">          
-            <label for="">Nombres:</label>
-            <input [(ngModel)]="persona.nombre" name="name" type="text" class="form-control" placeholder="Ejemplo: Yoiner">
-          </div>
+        <div class="form-group col-md-4">
+          <label for="">Apellidos:</label>
+          <input
+            [(ngModel)]="persona.apellido"
+            name="apellidos"
+            type="text"
+            class="form-control"
+            placeholder="Ejemplo: Bello"
+          />
+        </div>
 
-          <div class="form-group col-md-4">
-            <label for="">Apellidos:</label>
-            <input [(ngModel)]="persona.apellido" name="apellidos" type="text" class="form-control" placeholder="Ejemplo: Bello">
-          </div>
+        <form [formGroup]="form">
+        <div class="form-group col-md-4">
+          <label for="">Email</label>
+          <input
+            [(ngModel)]="persona.email"
+            type="text"
+            formControlName="email"
+            placeholder="Enter email"
+            class="form-control"
+          />
+          <label class="text-danger" *ngIf="getError(form.get('email'))">
+            {{ getError(form.get("email")) }}
+          </label>
+        </div>
+      </form>
 
-          <div class="form-group col-md-4">
-            <label for="">Email</label>
-            <input [(ngModel)]="persona.email" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
+        <div class="form-group col-md-2">
+          <label for="">Edad:</label>
+          <input
+            [(ngModel)]="persona.edad"
+            name="edad"
+            type="number"
+            class="form-control"
+          />
+        </div>
+        <br/>
 
-          <div class="form-group col-md-2">
-            <label for="">Edad:</label>
-            <input [(ngModel)]="persona.edad" name="edad" type="number" class="form-control">
-          </div>
-          <br>
-
-          <button (click)="Guardar()" class="btn btn-outline-success">Guardar</button>
-        </form>
-      </div>
-
+        <button (click)="Guardar()" class="btn btn-outline-success">
+          Guardar
+        </button>
+      </form>
     </div>
   </div>
+</div>
