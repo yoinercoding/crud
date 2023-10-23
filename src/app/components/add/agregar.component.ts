@@ -10,7 +10,7 @@ import { Persona } from 'src/app/model/Persona';
 })
 export class AgregarComponent {
 
-  persona:Persona=new Persona();
+  persona:Persona= new Persona();
   constructor(private router:Router, private service:ServiceService) { }
 
   ngOnInit() {
@@ -19,7 +19,7 @@ export class AgregarComponent {
   Guardar(){
     this.service.createPersona(this.persona)
     .subscribe(data=>{
-      alert("Se agregó wuacho!!!");
+      alert("Se agregó la persona.");
       this.router.navigate(["listar"]);
     })
   }

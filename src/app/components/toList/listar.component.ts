@@ -14,22 +14,20 @@ export class ListarComponent implements OnInit{
   constructor(private service:ServiceService, private router:Router) {}
 
   ngOnInit() {
-    this.service.getPersonas()
-    .subscribe(data=>{
-      this.personas=data;
+    this.service.getPersonas().subscribe(data => {
+      this.personas = data;
     });
   }
 
-  Editar(persona:Persona):void{
+  Editar(persona:Persona):void {
     localStorage.setItem("id",persona.id.toString());
-    this.router.navigate(["edit"]);
+    this.router.navigate(["editar"]);
   }
 
-  Delete(persona:Persona){
-    this.service.deletePersona(persona)
-    .subscribe(data=>{
-      this.personas=this.personas.filter(p=>p!==persona);
-      alert("Usuario eliminado...");
+  Delete(persona:Persona) {
+    this.service.deletePersona(persona).subscribe(data => {
+      this.personas= this.personas.filter(p => p!== persona);
+      alert("Usuario eliminado.");
     })
   }
 }

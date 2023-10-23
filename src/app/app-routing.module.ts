@@ -7,7 +7,7 @@ import { EditarComponent } from './components/edit/editar.component';
 const routes: Routes = [
   {path:'listar', component:ListarComponent},
   {path:'agregar', component:AgregarComponent},
-  {path:'edit', component:EditarComponent}
+  {path:'editar', component:EditarComponent}
 ];
 
 @NgModule({
