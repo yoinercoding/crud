@@ -15,9 +15,15 @@ export class EditarComponent {
   constructor(private router:Router,private service:ServiceService) { }
 
   ngOnInit() {
+    let id = localStorage.getItem("id");
+    if(id != null) {
+      this.service.getPersonaId(parseInt(id)).subscribe(data => {
+        this.persona = data;
+      })
+    }
   }
 
-  Actualizar(){
+  Editar(){
     let id = localStorage.getItem("id");
     if (id != undefined) {
       this.persona.id = parseInt(id);
@@ -27,5 +33,9 @@ export class EditarComponent {
         this.router.navigate(["listar"]);
       })        
     }
+  }
+
+  Cancelar() {
+    this.router.navigate(["listar"]);
   }
 }
