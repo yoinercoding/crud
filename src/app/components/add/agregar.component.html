@@ -1,4 +1,4 @@
-<div class="container col-md-5">
+<div class="container col-md-4">
   <div class="card">
     <div class="card-header">
       <h3>Agregar Personas</h3>
@@ -6,56 +6,59 @@
 
     <div class="card-body">
       <form action="">
-        <div class="form-group col-md-4">
-          <label for="">Nombres:</label>
+        <div class="form-floating mb-2">
           <input
             [(ngModel)]="persona.nombre"
-            name="name"
-            type="text"
+            name="nombre"
             class="form-control"
-            placeholder="Ejemplo: Yoiner"
+            id="floatingInput"
+            placeholder="Nombres"
           />
+          <label for="floatingInput">Nombres</label>
         </div>
 
-        <div class="form-group col-md-4">
-          <label for="">Apellidos:</label>
+        <div class="form-floating mb-2">
           <input
             [(ngModel)]="persona.apellido"
-            name="apellidos"
+            name="apellido"
             type="text"
             class="form-control"
-            placeholder="Ejemplo: Bello"
+            id="floatingInput"
+            placeholder="Apellidos"
           />
+          <label for="floatingPassword">Apellidos</label>
         </div>
 
-        <form [formGroup]="form">
-        <div class="form-group col-md-4">
-          <label for="">Email</label>
-          <input
-            [(ngModel)]="persona.email"
-            type="text"
-            formControlName="email"
-            placeholder="Enter email"
-            class="form-control"
-          />
-          <label class="text-danger" *ngIf="getError(form.get('email'))">
-            {{ getError(form.get("email")) }}
-          </label>
-        </div>
-      </form>
 
-        <div class="form-group col-md-2">
-          <label for="">Edad:</label>
+          <div class="form-floating mb-2">
+            <input
+              [(ngModel)]="persona.email"
+              name="email"
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Email"
+            />
+            <label for="floatingInput">Email</label>        
+          </div>
+
+        <div class="form-floating mb-2">
           <input
             [(ngModel)]="persona.edad"
             name="edad"
             type="number"
             class="form-control"
+            id="floatingInput"
+            placeholder="Edad"
           />
+          <label for="floatingPassword">Edad</label>
         </div>
-        <br/>
+        <br />
 
-        <button (click)="Guardar()" class="btn btn-outline-success">
+        <button
+          (click)="Guardar()"
+          class="btn btn-outline-success"
+        >
           Guardar
         </button>
       </form>
