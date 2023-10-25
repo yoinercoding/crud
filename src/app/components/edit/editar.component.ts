@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Persona } from 'src/app/model/Persona';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-editar',
@@ -29,7 +30,7 @@ export class EditarComponent {
       this.persona.id = parseInt(id);
       this.service.updatePersona(this.persona).subscribe(data => {
         this.persona = data;
-        alert("Se actualizó con exito!");
+        this.msgAlertEditar('top-center','success','Persona actualizada correctamente.','false','1000');    
         this.router.navigate(["listar"]);
       })        
     }
@@ -37,5 +38,15 @@ export class EditarComponent {
 
   Cancelar() {
     this.router.navigate(["listar"]);
+  }
+
+  msgAlertEditar = (position : any, icon : any, title: any, showConfirmButton: any, timer: any) => {
+    Swal.fire({
+      position,
+      icon,
+      title,
+      showConfirmButton,
+      timer
+    })
   }
 }

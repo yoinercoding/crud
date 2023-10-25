@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Persona } from 'src/app/model/Persona';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-agregar',
@@ -11,6 +13,9 @@ import { Persona } from 'src/app/model/Persona';
 
 export class AgregarComponent {
 
+  ngOnInit() {
+  }
+
   persona:Persona= new Persona();
   constructor(private router:Router, private service:ServiceService) {
   }
@@ -18,11 +23,20 @@ export class AgregarComponent {
   Guardar(){
       this.service.createPersona(this.persona)
       .subscribe(data=>{
-        alert("Se agregó la persona.");
+        this.msgAlertGuardar('top-center','success','Persona guardada correctamente.','false','1000');    
         this.router.navigate(["listar"]);
-      })
-    } 
-  ngOnInit() {
+      });
     }
+
+msgAlertGuardar = (position : any, icon : any, title: any, showConfirmButton: any, timer: any) => {
+    Swal.fire({
+      position,
+      icon,
+      title,
+      showConfirmButton,
+      timer
+    })
   }
+}
+
 

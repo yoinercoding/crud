@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
 import { ServiceService } from '../../Service/service.service';
 import { Persona } from 'src/app/model/Persona';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-listar',
@@ -27,7 +28,17 @@ export class ListarComponent implements OnInit{
   Delete(persona:Persona) {
     this.service.deletePersona(persona).subscribe(data => {
       this.personas= this.personas.filter(p => p!== persona);
-      alert("Usuario eliminado.");
+      this.msgAlertDelete('top-center','success','Persona eliminada correctamente.','false','1000');    
+    })
+  }
+
+  msgAlertDelete = (position : any, icon : any, title: any, showConfirmButton: any, timer: any) => {
+    Swal.fire({
+      position,
+      icon,
+      title,
+      showConfirmButton,
+      timer
     })
   }
 }
