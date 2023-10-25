@@ -8,13 +8,15 @@ import { EditarComponent } from './components/edit/editar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceService } from '../app/Service/service.service';
 import {HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListarComponent,
     AgregarComponent,
-    EditarComponent
+    EditarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
